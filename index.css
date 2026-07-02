@@ -1,41 +1,69 @@
-/* GENERAL PAGE RULES */
+:root {
+    --bg: #ffffff;
+    --fg: #000000;
+    --link: #800000;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #111111;
+        --fg: #e0e0e0;
+        --link: #ff6666;
+    }
+}
 
 body {
-    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-    font-size: 1em;
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'Courier New', monospace;
+    background-color: var(--bg);
+    color: var(--fg);
+    max-width: 50rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    line-height: 1.6;
+    font-size: 16px;
 }
 
-h1 {
-    font-size: 2em;
-}
-
-#holder {
-    margin-top: 25px;
-    margin-bottom: 25px;
-    display: flex;
-}
-
-#left {
-    flex-grow: 100;
-    min-width: 1em;
-    max-width: 4em;
-}
-
-#middle {
-    max-width: 31em;
-}
-
-#right {
-    min-width: 1em;
-    flex-grow: 100;
+h1, h2, h3 {
+    font-weight: bold;
+    border-bottom: 1px dashed var(--fg);
+    padding-bottom: 0.2rem;
+    margin-top: 2.5rem;
 }
 
 a {
-	color:#660000;
+    color: var(--link);
+    text-decoration: none;
 }
 
 a:hover {
-	color:#400000;
+    background-color: var(--fg);
+    color: var(--bg) !important;
+    text-decoration: none;
 }
 
+nav {
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
 
+nav a {
+    margin-right: 1.5rem;
+}
+
+nav a::before { content: "[ "; color: var(--fg); }
+nav a::after { content: " ]"; color: var(--fg); }
+
+ul { list-style-type: square; }
+li { margin-bottom: 0.5rem; }
+
+.date {
+    float: right;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
